@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+    }
+
+   
+
+    .contain {
+        MARGIN: 0 AUTO;
+        WIDTH: 80%;
+        TEXT-ALIGN: center;
+    }
+
+    button#btn {
+        position: absolute;
+        top: 50%;
+
+        height: 29px;
+        width: 130px;
+        border: 1px solid black;
+        background: transparent;
+        border-radius: 22px;
+
+    }
+    p {
+    display: block;
+    font-size: 35px;
+    }
+
+    h3 {
+        animation: changecolor 5s infinite alternate;
+    }
+
+    @keyframes changecolor {
+        0% {
+            color: blue;
+        }
+
+        20% {
+            color: yellow;
+        }
+
+        30% {
+            color: green;
+        }
+
+        60% {
+            color: red;
+        }
+
+        90% {
+            color: skyblue;
+        }
+
+        100% {
+            color: blueviolet;
+        }
+    }
+</style>
+
+<body id="bdy">
+    <div class="contain">
+        <h1>Click the button to display the background color name.</h1>
+        <p><strong>the color code is <span id="spn"></span>.</strong></p>
+        <button id="btn">click me!</button>
+    </div>
+    <script>
+
+        // 1st
+
+        var bttn = document.getElementById("btn");
+        var bdy = document.querySelector("body");
+        var spnn = document.getElementById("spn");
+        // var color = ["white", "green", "skyblue", "blue", "yellow", "red"];
+        // var i = 0;
+        bttn.addEventListener("click", () => {
+
+           
+  var hexValues = "0123456789ABCDEF";
+  var hexcode = "#";
+  for (var i = 0; i < 6; i++) {
+    var randomIndex = Math.floor(Math.random() * hexValues.length);
+    hexcode += hexValues[randomIndex];
+  }
+
+            bdy.style.background = hexcode;
+            spnn.innerHTML = hexcode;
+            i++;
+        });
+    </script>
+</body>
+
+</html>
